@@ -1,0 +1,22 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment Credentials & Secrets
+.env
+*.json
+service_account.json
+
+# Streamlit Cache
+.streamlit/secrets.toml
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
