@@ -7,17 +7,7 @@ An enterprise-grade security intelligence pipeline that automatically retrieves 
 
 ## 🏗️ Architecture & Pipeline Flow
 
-+-------------------+      +-----------------------+      +-----------------------+
-|  BigQuery Table   | ---> |  GCS Private Bucket   | ---> |   In-Memory Parsing   |
-| (Metadata & URLs) |      | (Authenticated SDK)   |      |       (pypdf)         |
-+-------------------+      +-----------------------+      +-----------------------+
-|
-v
-+-------------------+      +-----------------------+      +-----------------------+
-| Streamlit UI      | <--- | JSON Schema Validator | <--- | Gemini 2.5 Flash      |
-| (Analytics & Logs)|      | (data_processor.py)   |      | (BigQuery ML Remote)  |
-+-------------------+      +-----------------------+      +-----------------------+
-
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/ce5c6ab3-2114-4425-a4b9-84f9f3457e0f" />
 
 ### End-to-End Pipeline Execution Steps:
 1. **Metadata Lookup:** Streamlit queries BigQuery to fetch available enterprise tenants and report periods.
@@ -108,9 +98,16 @@ python3 -m venv venv
 source venv/bin/activate
 (You will know activation succeeded when (venv) appears at the start of your terminal prompt).
 
-4. Install Dependencies
-With the virtual environment activated ((venv) active), upgrade pip and install all required packages:
+### 4. Install Dependencies
 
+With the virtual environment activated (`(venv)` active), upgrade `pip` and install the required Python libraries:
+
+```bash
+# Upgrade pip
+python -m pip install --upgrade pip
+
+# Install required Python libraries
+pip install streamlit google-cloud-bigquery google-cloud-storage pypdf pandas db-dtypes
 Bash
 python -m pip install --upgrade pip
 pip install -r requirements.txt
